@@ -135,14 +135,20 @@ class poseDetector():
     
     def detectArmsDown(self, lmlist):
 
-        left_index = lmlist[19][2]
-        right_index = lmlist[20][2]
+        try:
 
-        hip_line = lmlist[24][2]
+            left_index = lmlist[19][2]
+            right_index = lmlist[20][2]
+
+            hip_line = lmlist[24][2]
+
+        except IndexError:
+            return 
 
         if left_index > hip_line and right_index > hip_line:
             self.armsDownCounter += 1
 
+        return self.armsDownCounter
         
 
 
@@ -189,7 +195,7 @@ def index():
 
 
 @app.route('/demo')
-def tryitout():
+def demo():
     detector.setarmsCounter(0)
     detector.setlegsCounter(0)
     detector.setswayCounter(0)
@@ -203,10 +209,12 @@ def results():
     legscounter = int(detector.getlegsCounter())
     swaycounter = int(detector.getswayCounter())
     armsdowncounter = int(detector.gethandsCounter())
-
-
-
     return render_template('results.html', armscounter=armscounter, legscounter=legscounter, swaycounter=swaycounter, armsdowncounter=armsdowncounter)
+
+
+@app.route('/analytics')
+def analytics():
+    return render_template('analytics.html')
 
 
 @app.route('/video_feed')
