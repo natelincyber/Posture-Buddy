@@ -24,6 +24,7 @@ class poseDetector():
         self.armscounter = 0
         self.legscounter = 0
         self.swaycounter = 0
+        self.armsDownCounter = 0
 
     # finds pose and draws over it
     def findPose(self, frame, draw=True):
@@ -71,10 +72,16 @@ class poseDetector():
         self.legsCounter = val
 
     def getswayCounter(self):
-        return self.swaycounter
+        return self.swaycounter/30
 
     def setswayCounter(self, val):
         self.swaycounter = val
+    
+    def gethandsCounter(self):
+        return self.armsDownCounter/30
+
+    def sethandsCounter(self, val):
+        self.armsDownCounter = val
 
     def detectCrossedArms(self, lmlist):
         #left_wrist = 15
@@ -113,20 +120,30 @@ class poseDetector():
         except IndexError:
             return
 
-        print(left_anklex, right_anklex)
-
         if left_anklex < right_anklex or right_anklex > left_anklex:
             self.legsCounter += 1
 
         return self.legsCounter
 
-    def dectectSway(self, lmlist, lhold, rhold):
+    def detectSway(self, lmlist, lhold, rhold):
 
         left_shoulderx = lmlist[11][1]
         right_shoulderx = lmlist[12][1]
 
         rhold = right_shoulderx
         lhold = left_shoulderx
+    
+    def detectArmsDown(self, lmlist):
+
+        left_index = lmlist[19][2]
+        right_index = lmlist[20][2]
+
+        hip_line = lmlist[24][2]
+
+        if left_index > hip_line and right_index > hip_line:
+            self.armsDownCounter += 1
+
+        
 
 
 def main(detector):
@@ -142,6 +159,7 @@ def main(detector):
         lmList = detector.getPosition(frame)
         detector.detectCrossedArms(lmList)
         detector.detectCrossedLegs(lmList)
+        detector.detectArmsDown(lmList)
 
         # calculate FPS
         currentTime = time.time()
@@ -174,6 +192,8 @@ def index():
 def tryitout():
     detector.setarmsCounter(0)
     detector.setlegsCounter(0)
+    detector.setswayCounter(0)
+    detector.sethandsCounter(0)
     return render_template('demo.html')
 
 
@@ -181,7 +201,12 @@ def tryitout():
 def results():
     armscounter = int(detector.getarmsCounter())
     legscounter = int(detector.getlegsCounter())
-    return render_template('results.html', armscounter=armscounter, legscounter=legscounter)
+    swaycounter = int(detector.getswayCounter())
+    armsdowncounter = int(detector.gethandsCounter())
+
+
+
+    return render_template('results.html', armscounter=armscounter, legscounter=legscounter, swaycounter=swaycounter, armsdowncounter=armsdowncounter)
 
 
 @app.route('/video_feed')
