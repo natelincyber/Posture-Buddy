@@ -154,7 +154,7 @@ class poseDetector():
 def main(detector):
 
     # change 1 to 0 for regular webcam
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     previousTime = 0
 
     while True:
@@ -179,6 +179,7 @@ def main(detector):
             yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
         else:
             break
+
     cap.release()
     cv2.destroyAllWindows()
 
