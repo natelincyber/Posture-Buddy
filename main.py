@@ -76,7 +76,7 @@ class poseDetector():
 
     def setswayCounter(self, val):
         self.swaycounter = val
-    
+
     def gethandsCounter(self):
         return self.armsDownCounter/30
 
@@ -132,7 +132,7 @@ class poseDetector():
 
         rhold = right_shoulderx
         lhold = left_shoulderx
-    
+
     def detectArmsDown(self, lmlist):
 
         try:
@@ -143,19 +143,18 @@ class poseDetector():
             hip_line = lmlist[24][2]
 
         except IndexError:
-            return 
+            return
 
         if left_index > hip_line and right_index > hip_line:
             self.armsDownCounter += 1
 
         return self.armsDownCounter
-        
 
 
 def main(detector):
 
-    #change 1 to 0 for regular webcam
-    cap = cv2.VideoCapture(1)
+    # change 1 to 0 for regular webcam
+    cap = cv2.VideoCapture(0)
     previousTime = 0
 
     while True:
