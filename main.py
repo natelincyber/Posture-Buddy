@@ -180,7 +180,6 @@ def main(detector):
         else:
             break
 
-    cap.release()
     cv2.destroyAllWindows()
 
 
