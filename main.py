@@ -102,13 +102,12 @@ class poseDetector():
             centerBodyLine = ((lmlist[11][1] - lmlist[12][1])/2) + lmlist[12][1]
 
         except IndexError:
-
             return
 
         if left_wristx < centerBodyLine and right_wristx > centerBodyLine:
             self.armscounter += 1
 
-        return self.armscounter
+
 
     def detectCrossedLegs(self, lmlist):
         try:
@@ -122,19 +121,25 @@ class poseDetector():
         if left_anklex < right_anklex or right_anklex > left_anklex:
             self.legsCounter += 1
 
-        return self.legsCounter
 
-    def detectSway(self, lmlist, lhold, rhold):
+    def detectSway(self, lmlist):
 
         try:
+            
             left_shoulderx = lmlist[11][1]
             right_shoulderx = lmlist[12][1]
 
             left_anklex = lmlist[27][1]
             right_anklex = lmlist[28][1]
+
         except IndexError:
             return
 
+        centerBodyLine = ((left_shoulderx - right_shoulderx)/2) + right_shoulderx
+        centerFootLine = ((left_anklex - right_anklex)/2) + right_anklex
+
+        if abs(centerBodyLine - centerFootLine) > 30:
+            self.swaycounter += 1
         
 
 
@@ -152,8 +157,6 @@ class poseDetector():
 
         if left_index > hip_line and right_index > hip_line:
             self.armsDownCounter += 1
-
-        return self.armsDownCounter
 
 
 def main(detector):
@@ -173,6 +176,7 @@ def main(detector):
         detector.detectCrossedArms(lmList)
         detector.detectCrossedLegs(lmList)
         detector.detectArmsDown(lmList)
+        detector.detectSway(lmList)
 
         # calculate FPS
         currentTime = time.time()
