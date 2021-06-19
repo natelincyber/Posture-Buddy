@@ -99,8 +99,7 @@ class poseDetector():
             right_wristx = lmlist[16][1]
             # right_wristy = lmlist[16][2]
 
-            centerBodyLine = (
-                (lmlist[11][1] - lmlist[12][1])/2) + lmlist[12][1]
+            centerBodyLine = ((lmlist[11][1] - lmlist[12][1])/2) + lmlist[12][1]
 
         except IndexError:
 
@@ -137,7 +136,7 @@ class poseDetector():
             return
 
         
-        
+
 
     def detectArmsDown(self, lmlist):
 
@@ -160,7 +159,9 @@ class poseDetector():
 def main(detector):
 
     # change 1 to 0 for regular webcam
+    
     cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+
     previousTime = 0
 
     while True:
