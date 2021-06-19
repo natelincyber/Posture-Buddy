@@ -4,7 +4,6 @@ from flask import Response
 
 import poseModule
 
-
 app = Flask(__name__)
 
 detector = poseModule.poseDetector()
@@ -32,7 +31,9 @@ def results():
     swaycounter = int(detector.getswayCounter())
     armsdowncounter = int(detector.gethandsCounter())
     fidgetcounter = int(detector.getfidgetCounter())
-    return render_template('results.html', armscounter=armscounter, legscounter=legscounter, swaycounter=swaycounter, armsdowncounter=armsdowncounter, fidgetcounter=fidgetcounter)
+    return render_template('results.html', armscounter=armscounter, legscounter=legscounter, 
+                            swaycounter=swaycounter, armsdowncounter=armsdowncounter, 
+                            fidgetcounter=fidgetcounter)
 
 
 @app.route('/analytics')
