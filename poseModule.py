@@ -58,7 +58,7 @@ class poseDetector():
         pass
 
     def getarmsCounter(self):
-        return self.armscounter/30
+        return self.armscounter/23
 
     def setarmsCounter(self, val):
         self.armscounter = val
@@ -70,25 +70,25 @@ class poseDetector():
         self.legsCounter = val
 
     def getswayCounter(self):
-        return self.swaycounter/30
+        return self.swaycounter/23
 
     def setswayCounter(self, val):
         self.swaycounter = val
 
     def gethandsCounter(self):
-        return self.armsDownCounter/30
+        return self.armsDownCounter/23
 
     def sethandsCounter(self, val):
         self.armsDownCounter = val
 
     def getfidgetCounter(self):
-        return self.fidgetCounter/30
+        return self.fidgetCounter/23
 
     def setfidgetCounter(self, val):
         self.fidgetCounter = val
 
     def getfocusCounter(self):
-        return self.focusCounter/30
+        return self.focusCounter/23
 
     def setfocusCounter(self, val):
         self.focusCounter = val
@@ -224,7 +224,7 @@ def main(detector):
         cv2.putText(frame, str(int(fps)), (20, 40),
                     cv2.FONT_HERSHEY_PLAIN, 2, (155, 50, 23), 1)
         
-        cv2.waitKey(30)
+        cv2.waitKey(10)
         if _:
             frame = cv2.imencode('.jpg', frame)[1].tobytes()
             yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
