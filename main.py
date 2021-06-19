@@ -127,11 +127,17 @@ class poseDetector():
 
     def detectSway(self, lmlist, lhold, rhold):
 
-        left_shoulderx = lmlist[11][1]
-        right_shoulderx = lmlist[12][1]
+        try:
+            left_shoulderx = lmlist[11][1]
+            right_shoulderx = lmlist[12][1]
 
-        rhold = right_shoulderx
-        lhold = left_shoulderx
+            left_anklex = lmlist[27][1]
+            right_anklex = lmlist[28][1]
+        except IndexError:
+            return
+
+        
+        
 
     def detectArmsDown(self, lmlist):
 
