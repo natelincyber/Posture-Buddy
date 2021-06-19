@@ -64,6 +64,41 @@ h1 {
   }
 }
 
+.one {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.0s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.0s;
+}
+
+.two {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.2s;
+      animation: dot 1.3s infinite;
+      animation-delay: 0.2s;
+}
+
+.three {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.3s;
+     animation: dot 1.3s infinite;
+     animation-delay: 0.4s;
+}
+
+@-webkit-keyframes dot {
+      0% { opacity: 0; }
+     50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes dot {
+      0% { opacity: 0; }
+     50% { opacity: 0; }
+    100% { opacity: 1; }
+}
 </style>
 
 <body>
@@ -73,7 +108,7 @@ h1 {
     <div class="bg bg3"></div>
     <div class="content">
         <!--make merryweather sans-->
-        <h1>We are analyzing your presentation and generating a custom report</h1>
+        <h1>We are analyzing your presentation and generating a custom report<span class="one">.</span><span class="two">.</span><span class="three">.</span></h1>
     </div>
     <script type="text/javascript">
         var timer = setTimeout(function() {
