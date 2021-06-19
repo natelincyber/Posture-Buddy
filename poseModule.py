@@ -175,7 +175,8 @@ class poseDetector():
         except IndexError:
             return
 
-        if left_wristx - abs(right_wristx) < 60:
+        if left_wristx - abs(right_wristx) < 60 and not (abs(right_wristx) > left_wristx):
+            print(left_wristx - abs(right_wristx))
             self.fidgetCounter += 1
 
     def detectFocus(self, lmlist):
@@ -202,14 +203,14 @@ def main(detector):
     
     cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
-    previousTime = 0
+    # previousTime = 0
 
     while True:
 
         _, frame = cap.read()
 
-        frame = detector.findPose(frame)
-        lmList = detector.getPosition(frame)
+        frame = detector.findPose(frame, False)
+        lmList = detector.getPosition(frame, False)
         detector.detectCrossedArms(lmList)
         detector.detectCrossedLegs(lmList)
         detector.detectArmsDown(lmList)
@@ -217,12 +218,12 @@ def main(detector):
         detector.detectFidget(lmList)
         detector.detectFocus(lmList)
 
-        # calculate FPS
+        '''# calculate FPS
         currentTime = time.time()
         fps = 1/(currentTime - previousTime)
         previousTime = currentTime
         cv2.putText(frame, str(int(fps)), (20, 40),
-                    cv2.FONT_HERSHEY_PLAIN, 2, (155, 50, 23), 1)
+                    cv2.FONT_HERSHEY_PLAIN, 2, (155, 50, 23), 1)'''
         
         cv2.waitKey(10)
         if _:

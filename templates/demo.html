@@ -5,13 +5,23 @@
     <!--change title-->
     <h2 class="mb-4">Try It Out</h2>
     <br />
+    
     <img
       style="display: block; margin-left: auto; margin-right: auto"
       src="{{ url_for('video_feed') }}"
     />
     <br />
     <br />
+    
     <a class="btn btn-light btn-xl" href="analytics">I'm Done!</a>
   </div>
+  <script type="text/javascript">
+    document.addEventListener("keypress", function(event) {
+      if (event.keyCode == 32) {
+        window.location='/analytics';
+      }
+    });
+  </script>
 </section>
 {% endblock %}
+
