@@ -3,7 +3,6 @@ import time
 import mediapipe as mp
 
 
-
 class poseDetector():
 
     def __init__(self, mode=False, upBody=False, smooth=True, detectionConf=0.5, trackConf=0.5):
@@ -224,7 +223,8 @@ def main(detector):
         previousTime = currentTime
         cv2.putText(frame, str(int(fps)), (20, 40),
                     cv2.FONT_HERSHEY_PLAIN, 2, (155, 50, 23), 1)
-
+        
+        cv2.waitKey(30)
         if _:
             frame = cv2.imencode('.jpg', frame)[1].tobytes()
             yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
