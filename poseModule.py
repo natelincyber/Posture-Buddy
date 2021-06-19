@@ -23,6 +23,7 @@ class poseDetector():
         self.swaycounter = 0
         self.armsDownCounter = 0
         self.fidgetCounter = 0
+        self.focusCounter = 0
 
     # finds pose and draws over it
     def findPose(self, frame, draw=True):
@@ -86,6 +87,12 @@ class poseDetector():
 
     def setfidgetCounter(self, val):
         self.fidgetCounter = val
+
+    def getfocusCounter(self):
+        return self.focusCounter/30
+
+    def setfocusCounter(self, val):
+        self.focusCounter = val
 
     def detectCrossedArms(self, lmlist):
         #left_wrist = 15
@@ -172,6 +179,23 @@ class poseDetector():
         if left_wristx - abs(right_wristx) < 60:
             self.fidgetCounter += 1
 
+    def detectFocus(self, lmlist):
+
+        try:
+            nose = lmlist[0][1]
+
+            left_shoulderx = lmlist[11][1]
+            right_shoulderx = lmlist[12][1]
+
+        except IndexError:
+            return
+
+        centerBodyLine = ((left_shoulderx - right_shoulderx)/2) + right_shoulderx
+
+        if abs(nose - centerBodyLine) > 30:
+            self.focusCounter += 1
+        
+
 
 def main(detector):
 
@@ -192,6 +216,7 @@ def main(detector):
         detector.detectArmsDown(lmList)
         detector.detectSway(lmList)
         detector.detectFidget(lmList)
+        detector.detectFocus(lmList)
 
         # calculate FPS
         currentTime = time.time()

@@ -21,6 +21,7 @@ def demo():
     detector.setswayCounter(0)
     detector.sethandsCounter(0)
     detector.setfidgetCounter(0)
+    detector.setfocusCounter(0)
     return render_template('demo.html')
 
 
@@ -31,9 +32,10 @@ def results():
     swaycounter = int(detector.getswayCounter())
     armsdowncounter = int(detector.gethandsCounter())
     fidgetcounter = int(detector.getfidgetCounter())
+    focuscounter = int(detector.getfocusCounter())
     return render_template('results.html', armscounter=armscounter, legscounter=legscounter, 
                             swaycounter=swaycounter, armsdowncounter=armsdowncounter, 
-                            fidgetcounter=fidgetcounter)
+                            fidgetcounter=fidgetcounter, focuscounter = focuscounter)
 
 
 @app.route('/analytics')
