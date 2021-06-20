@@ -24,6 +24,8 @@ class poseDetector():
         self.fidgetCounter = 0
         self.focusCounter = 0
 
+        self.universalCounter = 0
+
     # finds pose and draws over it
     def findPose(self, frame, draw=True):
         imgRGB = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -54,9 +56,6 @@ class poseDetector():
                                 cv2.FONT_HERSHEY_PLAIN, 1, (155, 50, 23), 1)
         return lmList
 
-    def refPos():
-        pass
-
     def getarmsCounter(self):
         return self.armscounter/23
 
@@ -64,7 +63,7 @@ class poseDetector():
         self.armscounter = val
 
     def getlegsCounter(self):
-        return self.legsCounter/30
+        return self.legsCounter/23
 
     def setlegsCounter(self, val):
         self.legsCounter = val
@@ -76,7 +75,7 @@ class poseDetector():
         self.swaycounter = val
 
     def gethandsCounter(self):
-        return self.armsDownCounter/23
+        return self.armsDownCounter/30
 
     def sethandsCounter(self, val):
         self.armsDownCounter = val
@@ -92,6 +91,12 @@ class poseDetector():
 
     def setfocusCounter(self, val):
         self.focusCounter = val
+
+    def getuniversalCounter(self):
+        return self.universalCounter/23
+    
+    def setuniversalCounter(self, val):
+        self.universalCounter = val
 
     def detectCrossedArms(self, lmlist):
         #left_wrist = 15
@@ -196,7 +201,6 @@ class poseDetector():
             self.focusCounter += 1
         
 
-
 def main(detector):
 
     # change 1 to 0 for regular webcam
@@ -208,7 +212,7 @@ def main(detector):
     while True:
 
         _, frame = cap.read()
-
+        
         frame = detector.findPose(frame, False)
         lmList = detector.getPosition(frame, False)
         detector.detectCrossedArms(lmList)
@@ -217,6 +221,7 @@ def main(detector):
         detector.detectSway(lmList)
         detector.detectFidget(lmList)
         detector.detectFocus(lmList)
+        detector.universalCounter += 1
 
         '''# calculate FPS
         currentTime = time.time()

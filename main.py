@@ -22,6 +22,7 @@ def demo():
     detector.sethandsCounter(0)
     detector.setfidgetCounter(0)
     detector.setfocusCounter(0)
+    detector.setuniversalCounter(0)
     return render_template('demo.html')
 
 
@@ -33,9 +34,14 @@ def results():
     armsdowncounter = int(detector.gethandsCounter())
     fidgetcounter = int(detector.getfidgetCounter())
     focuscounter = int(detector.getfocusCounter())
+    time = int(detector.getuniversalCounter())
     return render_template('results.html', armscounter=armscounter, legscounter=legscounter, 
                             swaycounter=swaycounter, armsdowncounter=armsdowncounter, 
-                            fidgetcounter=fidgetcounter, focuscounter = focuscounter)
+                            fidgetcounter=fidgetcounter, focuscounter = focuscounter, time = time)
+
+@app.route('/preloader')
+def preloader():
+    return render_template('preloader.html')
 
 
 @app.route('/analytics')
