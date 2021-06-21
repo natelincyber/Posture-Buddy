@@ -12024,11 +12024,3 @@ header.masthead .h1 {
 #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
-
-div#loading {
-  width: 35px;
-  height: 35px;
-  display: none;
-  background: url(/static/loader.gif) no-repeat;
-  cursor: wait;
-}

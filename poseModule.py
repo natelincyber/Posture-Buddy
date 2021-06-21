@@ -94,7 +94,7 @@ class poseDetector():
 
     def getuniversalCounter(self):
         return self.universalCounter/23
-    
+
     def setuniversalCounter(self, val):
         self.universalCounter = val
 
@@ -111,15 +111,14 @@ class poseDetector():
             left_wristx = lmlist[15][1]
             right_wristx = lmlist[16][1]
 
-            centerBodyLine = ((lmlist[11][1] - lmlist[12][1])/2) + lmlist[12][1]
+            centerBodyLine = (
+                (lmlist[11][1] - lmlist[12][1])/2) + lmlist[12][1]
 
         except IndexError:
             return
 
         if left_wristx < centerBodyLine and right_wristx > centerBodyLine:
             self.armscounter += 1
-
-
 
     def detectCrossedLegs(self, lmlist):
         try:
@@ -132,7 +131,6 @@ class poseDetector():
 
         if left_anklex < right_anklex or right_anklex > left_anklex:
             self.legsCounter += 1
-
 
     def detectSway(self, lmlist):
 
@@ -147,13 +145,12 @@ class poseDetector():
         except IndexError:
             return
 
-        centerBodyLine = ((left_shoulderx - right_shoulderx)/2) + right_shoulderx
+        centerBodyLine = (
+            (left_shoulderx - right_shoulderx)/2) + right_shoulderx
         centerFootLine = ((left_anklex - right_anklex)/2) + right_anklex
 
         if abs(centerBodyLine - centerFootLine) > 30:
             self.swaycounter += 1
-        
-
 
     def detectArmsDown(self, lmlist):
 
@@ -169,7 +166,6 @@ class poseDetector():
 
         if left_index > hip_line and right_index > hip_line:
             self.armsDownCounter += 1
-    
 
     def detectFidget(self, lmlist):
 
@@ -181,7 +177,6 @@ class poseDetector():
             return
 
         if left_wristx - abs(right_wristx) < 60 and not (abs(right_wristx) > left_wristx):
-            print(left_wristx - abs(right_wristx))
             self.fidgetCounter += 1
 
     def detectFocus(self, lmlist):
@@ -195,25 +190,26 @@ class poseDetector():
         except IndexError:
             return
 
-        centerBodyLine = ((left_shoulderx - right_shoulderx)/2) + right_shoulderx
+        centerBodyLine = (
+            (left_shoulderx - right_shoulderx)/2) + right_shoulderx
 
         if abs(nose - centerBodyLine) > 30:
             self.focusCounter += 1
-        
+
 
 def main(detector):
 
     # change 1 to 0 for regular webcam
-    
-    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+
+    cap = cv2.VideoCapture(0)
 
     # previousTime = 0
 
     while True:
 
         _, frame = cap.read()
-        
-        frame = detector.findPose(frame, False)
+
+        frame = detector.findPose(frame)
         lmList = detector.getPosition(frame, False)
         detector.detectCrossedArms(lmList)
         detector.detectCrossedLegs(lmList)
@@ -229,7 +225,7 @@ def main(detector):
         previousTime = currentTime
         cv2.putText(frame, str(int(fps)), (20, 40),
                     cv2.FONT_HERSHEY_PLAIN, 2, (155, 50, 23), 1)'''
-        
+
         cv2.waitKey(10)
         if _:
             frame = cv2.imencode('.jpg', frame)[1].tobytes()
