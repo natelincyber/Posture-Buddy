@@ -40,6 +40,7 @@ def calculateGrade(arms, legs, sway, armsDown, fidget, focus):
 
     threshold = 0
     nums = [arms, legs, sway, armsDown, fidget, focus]
+
     for i in range(len(nums)):
         if nums[i] > 20:
             threshold += 1
@@ -54,6 +55,20 @@ def calculateGrade(arms, legs, sway, armsDown, fidget, focus):
         return "c"
     else:
         return "d"
+
+
+def generateTips(arms, legs, sway, armsDown, fidget, focus):
+    divider = 0
+    nums = [arms, legs, sway, armsDown, fidget, focus]
+    tips = []
+
+    nums.sort()
+
+    tip1 = nums[-2]
+    tip2 = nums[-1]
+
+
+    return tip1, tip2
 
 
 
@@ -74,16 +89,29 @@ def results():
     fidgetPercent = int((fidgetcounter/time) * 100)
     focusPercent = int((focuscounter/time) * 100)
 
+    arms = False
+    legs = False
+    sway  = False
+    armsDown = False
+    fidget = False
+    focus = False
+
     convertedTime = convert(time)
     
     grade = calculateGrade(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
+
+    tip1, tip2 = generateTips(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
+
+    
+
 
     return render_template('results.html', armscounter=armscounter, legscounter=legscounter, 
                             swaycounter=swaycounter, armsdowncounter=armsdowncounter, 
                             fidgetcounter=fidgetcounter, focuscounter=focuscounter, time=time,
                             armsPercent=armsPercent, legsPercent=legsPercent, swayPercent=swayPercent,
                             armsDownPercent=armsDownPercent, fidgetPercent=fidgetPercent,
-                            focusPercent=focusPercent, convertedTime=convertedTime, grade=grade)
+                            focusPercent=focusPercent, convertedTime=convertedTime, grade=grade,
+                            tip1=tip1, tip2=tip2)
 
 @app.route('/preloader')
 def preloader():
