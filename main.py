@@ -38,25 +38,22 @@ def convert(seconds):
 
 def calculateGrade(arms, legs, sway, armsDown, fidget, focus):
 
-    totalScore = int((arms + legs + sway + armsDown + fidget + focus)/6)
-    
-    if (arms + legs + sway + armsDown + fidget + focus) <= 6:
-        return 0
-    
-    elif totalScore > 6 and totalScore <= 20:
-        return 1
-    
-    elif totalScore > 20 and totalScore <= 40:
-        return 2
-    
-    elif totalScore > 40 and totalScore <= 60:
-        return 3
+    threshold = 0
+    nums = [arms, legs, sway, armsDown, fidget, focus]
+    for i in range(len(nums)):
+        if nums[i] > 20:
+            threshold += 1
 
-    elif totalScore > 60 and totalScore <= 80:
-        return 4
-
-    elif totalScore > 80 and totalScore <= 100:
-        return 5
+    if threshold == 0:
+        return "s"
+    elif threshold == 1:
+        return "a"
+    elif threshold == 2:
+        return "b"
+    elif threshold == 3:
+        return "c"
+    else:
+        return "d"
 
 
 
