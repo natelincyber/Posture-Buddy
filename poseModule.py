@@ -200,8 +200,9 @@ class poseDetector():
 def main(detector):
 
     # change 1 to 0 for regular webcam
+    # remove cap
 
-    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(0)
 
     # previousTime = 0
 
