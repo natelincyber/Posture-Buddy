@@ -1,38 +1,27 @@
-{% extends 'base.html' %}
-
-{% block head %}
-{% endblock %}
-
-{% block title %}Result{% endblock %}
-
-{% block body %}
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block title
+%}Results{% endblock %} {% block body %}
 <!--navbar change colors-->
-<section class="page-section" id="contact">
-    <div class="container px-4 px-lg-5">
-        <!--decide styling and layout-->
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-lg-8 col-xl-6 text-center">
-                <h2 class="mt-0">Results</h2>
-                <hr class="divider" />
-                <br>
-                <h3>You crossed your arms for {{ armscounter }} seconds</h3>
-                <br>
-                <h3>You crossed your legs for {{ legscounter }} seconds</h3>
-                <br>
-                <h3>You were leaning for {{ swaycounter }} seconds</h3>
-                <br>
-                <h3>You put your hands down for {{ armsdowncounter }} seconds</h3>
-                <br>
-                <h3>You were fidgeting for {{ fidgetcounter }} seconds</h3>
-                <br>
-                <h3>You were looking away from the audience for {{ focuscounter }} seconds</h3>
-                <br>
-                <h3>Total time: {{ time }} seconds</h3>
-                <br>
-                <p class="text-muted mb-5">Questions? Make sure to contact us!</p>
-            </div>
+<section class="page-section" id="services">
+  <div class="container px-4 px-lg-5">
+    <h2 class="text-center mt-0">Results</h2>
+    <hr class="divider" />
+    <div class="row gx-4 gx-lg-5">
+      <div class="col-lg-6 col-md-6 text-center">
+        <div class="mt-5">
+          <h3 class="h4 mb-2">Overall Grade</h3>
+          <div class="mb-2"><img src="static/img/{{grade}}.svg" /></div>
         </div>
-
+      </div>
+      <div class="col-lg-6 col-md-6 text-center">
+        <div class="mt-5">
+          <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+          <h3 class="h4 mb-2">Up to Date</h3>
+          <p class="text-muted mb-0">
+            All dependencies are kept current to keep things fresh.
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 {% endblock %}
