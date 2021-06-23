@@ -26,28 +26,24 @@
 </head>
 
 <body id="page-top">
-    <!--loader-->
-    <div id="loading"></div>
-    <div id="content">
 
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <!--put logo in future-->
-                <a class="navbar-brand" href="/" onclick="loading();">Posture Buddy</a>
-        </nav>
-        {% block body %}
-        {% endblock %}
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <!--put logo in future-->
+            <a class="navbar-brand" href="/" onclick="loading();">Posture Buddy</a>
+    </nav>
+    {% block body %}
+    {% endblock %}
 
-        <footer class=" bg-light py-5">
-            <div class="container px-4 px-lg-5">
-                <div class="small text-center text-muted">Copyright &copy;
-                    <script type="text/javascript">
-                        document.write(new Date().getFullYear());
-                    </script> - Posture Buddy</div>
-            </div>
-        </footer>
-    </div>
+    <footer class=" bg-light py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted">Copyright &copy;
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear());
+                </script> - Posture Buddy</div>
+        </div>
+    </footer>
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Bootstrap core JS-->
@@ -57,15 +53,6 @@
     </script>
     <!-- Core theme JS-->
     <script src="/static/js/scripts.js"></script>
-    <!--Loader-->
-    <script type="text/javascript">
-        // <![CDATA[
-        function loading() {
-            $("#loading").show();
-            $("#content").hide();
-        }
-        // ]]>
-    </script>
 </body>
 
 </html>
