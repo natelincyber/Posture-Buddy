@@ -10,5 +10,3 @@
 4. results.html -> make it look nice and readable
 5. title screen
 6. logo 
-
-        
