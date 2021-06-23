@@ -18,9 +18,9 @@
           <div class="container">
             <h3 class="h4 mb-2">Focus Areas</h3>
             <ul class="list-group" style="list-style: none;">
-              <li class="mb-2 link-dark"><a href="#tip-1">Take me to my first tip</a></li>
+              <li class="mb-2 link-dark"><a href="#tip-{{ tip1 }}">Take me to my first tip</a></li>
               </li>
-              <li class="link-primary"><a href="#tip-2">Take me to my second tip</a></li>
+              <li class="link-primary"><a href="#tip-{{ tip2 }}">Take me to my second tip</a></li>
             </ul>
           </div>
         </div>
@@ -35,61 +35,61 @@
                 <br>
                 <section>
                   <p class="text-muted mb-1" style="text-align: center;">
-                    Crossing Arms
+                    Crossing Arms - {{ armsPercent }}%
                   </p>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100">25%</div>
+                    <div class="progress-bar" role="progressbar" style="width: {{ armsPercent }}%;" aria-valuenow="{{ armsPercent }}"
+                      aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </section>
                 <br>
                 <section>
                   <p class="text-muted mb-1" style="text-align: center;">
-                    Arms Counter
+                    Crossing Legs - {{ legsPercent }}%
                   </p>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100">25%</div>
+                    <div class="progress-bar" role="progressbar" style="width: {{ legsPercent }}%;" aria-valuenow="{{ legsPercent }}"
+                      aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </section>
                 <br>
                 <section>
                   <p class="text-muted mb-1" style="text-align: center;">
-                    Arms Counter
+                    Leaning - {{ swayPercent }}%
                   </p>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100">25%</div>
+                    <div class="progress-bar" role="progressbar" style="width: {{ swayPercent }}%;" aria-valuenow="{{ swayPercent }}"
+                      aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </section>
                 <br>
                 <section>
                   <p class="text-muted mb-1" style="text-align: center;">
-                    Crossing Arms
+                    Arms Down At Sides - {{ armsDownPercent }}%
                   </p>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100">25%</div>
+                    <div class="progress-bar" role="progressbar" style="width: {{ armsDownPercent }}%;" aria-valuenow="{{ armsDownPercent }}"
+                      aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </section>
                 <br>
                 <section>
                   <p class="text-muted mb-1" style="text-align: center;">
-                    Crossing Arms
+                    Fidgeting - {{ fidgetPercent }}%
                   </p>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100">25%</div>
+                    <div class="progress-bar" role="progressbar" style="width: {{ fidgetPercent }}%;" aria-valuenow="{{ fidgetPercent }}"
+                      aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </section>
                 <br>
                 <section>
                   <p class="text-muted mb-1" style="text-align: center;">
-                    Crossing Arms
+                    Not Looking At Audience - {{ focusPercent }}%
                   </p>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                      aria-valuemin="0" aria-valuemax="100">25%</div>
+                    <div class="progress-bar" role="progressbar" style="width: {{ focusPercent }}%;" aria-valuenow="{{ focusPercent }}"
+                      aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </section>
               </div>

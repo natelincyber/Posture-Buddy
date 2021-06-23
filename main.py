@@ -59,12 +59,20 @@ def calculateGrade(arms, legs, sway, armsDown, fidget, focus):
 
 def generateTips(arms, legs, sway, armsDown, fidget, focus):
     
-    nums = [arms, legs, sway, armsDown, fidget, focus]
+    nums = {"6": arms,
+            "5": legs,
+            "2": sway,
+            "1": armsDown,
+            "3": fidget,
+            "4": focus
+            }
 
-    nums.sort()
+    numsSorted = {k: v for k, v in sorted(nums.items(), key=lambda item: item[1])}
 
-    tip1 = nums[-2]
-    tip2 = nums[-1]
+    tip1 = list(numsSorted.keys())[-1]
+    tip2 = list(numsSorted.keys())[-2]
+
+    print(numsSorted, tip1, tip2)
 
 
     return tip1, tip2
@@ -102,8 +110,6 @@ def results():
     tip1, tip2 = generateTips(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
 
     
-
-
     return render_template('results.html', armscounter=armscounter, legscounter=legscounter, 
                             swaycounter=swaycounter, armsdowncounter=armsdowncounter, 
                             fidgetcounter=fidgetcounter, focuscounter=focuscounter, time=time,
