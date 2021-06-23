@@ -58,9 +58,8 @@ def calculateGrade(arms, legs, sway, armsDown, fidget, focus):
 
 
 def generateTips(arms, legs, sway, armsDown, fidget, focus):
-    divider = 0
+    
     nums = [arms, legs, sway, armsDown, fidget, focus]
-    tips = []
 
     nums.sort()
 
