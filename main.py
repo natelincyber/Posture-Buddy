@@ -32,7 +32,7 @@ def convert(seconds):
     seconds %= 3600
     minutes = seconds // 60
     seconds %= 60
-      
+
     return "%d:%02d:%02d" % (hour, minutes, seconds)
 
 
@@ -58,7 +58,7 @@ def calculateGrade(arms, legs, sway, armsDown, fidget, focus):
 
 
 def generateTips(arms, legs, sway, armsDown, fidget, focus):
-    
+
     nums = {"6": arms,
             "5": legs,
             "2": sway,
@@ -67,13 +67,13 @@ def generateTips(arms, legs, sway, armsDown, fidget, focus):
             "4": focus
             }
 
-    numsSorted = {k: v for k, v in sorted(nums.items(), key=lambda item: item[1])}
+    numsSorted = {k: v for k, v in sorted(
+        nums.items(), key=lambda item: item[1])}
 
     tip1 = list(numsSorted.keys())[-1]
     tip2 = list(numsSorted.keys())[-2]
 
     return tip1, tip2
-
 
 
 @app.route('/results')
@@ -94,19 +94,24 @@ def results():
     focusPercent = int((focuscounter/time) * 100)
 
     convertedTime = convert(time)
-    
-    grade = calculateGrade(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
 
-    tip1, tip2 = generateTips(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
+    grade = calculateGrade(armsPercent, legsPercent, swayPercent,
+                           armsDownPercent, fidgetPercent, focusPercent)
 
-    
-    return render_template('results.html', armscounter=armscounter, legscounter=legscounter, 
-                            swaycounter=swaycounter, armsdowncounter=armsdowncounter, 
-                            fidgetcounter=fidgetcounter, focuscounter=focuscounter, time=time,
-                            armsPercent=armsPercent, legsPercent=legsPercent, swayPercent=swayPercent,
-                            armsDownPercent=armsDownPercent, fidgetPercent=fidgetPercent,
-                            focusPercent=focusPercent, convertedTime=convertedTime, grade=grade,
-                            tip1=tip1, tip2=tip2)
+    tip1, tip2 = generateTips(
+        armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
+
+    if tip2 < tip1:
+        tip1, tip2 = tip2, tip1
+
+    return render_template('results.html', armscounter=armscounter, legscounter=legscounter,
+                           swaycounter=swaycounter, armsdowncounter=armsdowncounter,
+                           fidgetcounter=fidgetcounter, focuscounter=focuscounter, time=time,
+                           armsPercent=armsPercent, legsPercent=legsPercent, swayPercent=swayPercent,
+                           armsDownPercent=armsDownPercent, fidgetPercent=fidgetPercent,
+                           focusPercent=focusPercent, convertedTime=convertedTime, grade=grade,
+                           tip1=tip1, tip2=tip2)
+
 
 @app.route('/preloader')
 def preloader():
