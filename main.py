@@ -108,6 +108,7 @@ def results():
     grade = calculateGrade(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
 
     tip1, tip2 = generateTips(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
+    print(tip1, tip2)
 
     
     return render_template('results.html', armscounter=armscounter, legscounter=legscounter, 

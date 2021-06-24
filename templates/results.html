@@ -45,7 +45,7 @@
               <br>
               <a class="btn btn-outline-primary btn-lg" role="button" href="#tip-{{ tip1 }}">Tip 1</a>
               &nbsp;
-              <a class="btn btn-outline-primary btn-lg" role="button" href="#tip-{{ tip1 }}">Tip 2</a>
+              <a class="btn btn-outline-primary btn-lg" role="button" href="#tip-{{ tip2 }}">Tip 2</a>
               <p class="text-muted mt-3" style="text-align: center;">
                 Click a button for personalized tips
               </p>
@@ -121,7 +121,13 @@
         </div>
         <div class="mt-5 mx-5">
           <p id="tip-1"></p>
-          <h3 class="h4 mb-2"><mark>1. Keep your arms busy</mark></h3>
+            {% if tip1|int == 1 or tip2|int == 1%}
+              <h3 class="h4 mb-2"><mark>1. Keep your arms busy</mark></h3>
+
+            {%  else %}
+              <h3 class="h4 mb-2">1. Keep your arms busy</h3>
+
+            {% endif %}
           <p class="text-muted mb-0">
             Moving your arms allows you to direct your audience's attention to where you want it to be.
             For example, you could be pointing at your presentation, or holding a object that pertains to your
@@ -146,7 +152,13 @@
             </p>
           </div>
           <br id="tip-2">
-          <h3 class="h4 mb-2">2. Stand straight or walk around the room</h3>
+          {% if tip1|int ==  2 or tip2|int == 2%}
+              <h3 class="h4 mb-2"><mark>2. Stand straight or walk around the room</mark></h3>
+
+            {%  else %}
+              <h3 class="h4 mb-2">2. Stand straight or walk around the room</h3>
+
+            {% endif %}
           <p class="text-muted mb-0">
             Walking or standing straight make you look taller and more formal, especially compared to leaning or
             slouching. Bad posture is extremely easy to detect and can have negative impacts on your presentation.
@@ -167,7 +179,13 @@
               </p>
             </div>
             <br id="tip-3">
-            <h3 class="h4 mb-2">3. Move your hands away from each other</h3>
+            {% if tip1|int ==  3 or tip2|int == 3%}
+              <h3 class="h4 mb-2"><mark>3. Move your hands away from each other</mark></h3>
+
+            {% else %}
+              <h3 class="h4 mb-2">3. Move your hands away from each other</h3>
+
+            {% endif %}
             <p class="text-muted mb-0">
               Fidgeting is a very common indicator of fear or stage fright. Most of the time, people don't even realize
               they
@@ -193,11 +211,17 @@
               </p>
             </div>
             <br id="tip-4">
-            <h3 class="h4 mb-2">4. Make your audience your top priority</h3>
+            {% if tip1|int == 4 or tip2|int == 4%}
+              <h3 class="h4 mb-2"><mark>4. Make your audience your top priority</mark></h3>
+
+            {%  else %}
+              <h3 class="h4 mb-2">4. Make your audience your top priority</h3>
+
+            {% endif %}
             <p class="text-muted mb-0">
               Many times, people spend too much time looking at their presentation and fail to acknowledge their
               audience.
-              Your audience will feel more welcomed and thereforemore inclined to agree with your points. Here are a
+              Your audience will feel more welcomed and therefore more inclined to agree with your points. Here are a
               couple
               tips to help you look at your audience more: <br> <br>
               <div class="container">
@@ -226,7 +250,13 @@
               </div>
             </p>
             <br id="tip-5">
-            <h3 class="h4 mb-2">5. Walk around or stand tall </h3>
+            {% if tip1|int ==  5 or tip2|int == 5%}
+              <h3 class="h4 mb-2"><mark>5. Walk around or stand tall</mark></h3>
+
+            {%  else %}
+              <h3 class="h4 mb-2">5. Walk around or stand tall</h3>
+
+            {% endif %}
             <p class="text-muted mb-0">
               Crossed legs are extremely visible to your andience and divert your audience's attention away from your
               presentation. In addition, you could also lose your balance and trip on stage. Here are some tips to help
@@ -246,7 +276,13 @@
               </p>
             </div>
             <br id="tip-6">
-            <h3 class="h4 mb-2">6. Move your arms around</h3>
+            {% if tip1|int == 6 or tip2|int == 6%}
+              <h3 class="h4 mb-2"><mark>6. Move your arms around</mark></h3>
+
+            {%  else %}
+              <h3 class="h4 mb-2">6. Move your arms around</h3>
+
+            {% endif %}
             <p class="text-muted mb-0">
               Crossing your arms gives your audience a negative connotation of you and your presentation, making them
               much
