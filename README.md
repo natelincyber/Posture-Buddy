@@ -22,9 +22,13 @@ We noticed that many members in our community fail to speak up about issues that
 
 
 ## Requirements
-- Latest version of Google Chrome
+- Latest version of Google Chrome, Edge, or Firefox
 - Latest version of Python installed
 - Use pip to install [medapipe](https://pypi.org/project/mediapipe/), [flask](https://pypi.org/project/Flask/), and [opencv](https://pypi.org/project/opencv-python/)
 - pip is automatically installed on your PC as part of your Python installation. Simply type this into your terminal
     - ``` python -m pip install [LIRBARY TO INSTALL] ```
 ## Instructions to Use
+1. Download all the files from this repository into a folder on your computer
+2. Open your folder and click on main.py
+3. Now, go into your broswer and type 127.0.0.1:5000 into the url
+4. You should now be able to access the Posture Buddy site and use it as much as you want.
