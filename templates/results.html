@@ -14,20 +14,17 @@
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
     rel="stylesheet" type="text/css" />
   <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="/static/css/styles2.css" rel="stylesheet" />
-  <link href="/static/css/results.scss" rel="stylesheet" />
+  <link href="/static/css/styless.css" rel="stylesheet" />
   <title>Results</title>
 </head>
 
 <body>
 
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
-      <!--put logo in future-->
-      <a class="navbar-brand results-navbar" href="/" onclick="loading();">Posture Buddy</a>
+      <a class="navbar-brand" href="/" onclick="loading();">Posture Buddy</a>
   </nav>
-  <!--navbar change colors-->
   <section class="page-section bg-light">
     <div class="container px-4 px-lg-5">
       <h2 class="text-center mt-0">Results</h2>
@@ -121,13 +118,13 @@
         </div>
         <div class="mt-5 mx-5">
           <p id="tip-1"></p>
-            {% if tip1|int == 1 or tip2|int == 1%}
-              <h3 class="h4 mb-2"><mark>1. Keep your arms busy</mark></h3>
+          {% if tip1|int == 1 or tip2|int == 1%}
+          <h3 class="h4 mb-2"><mark>1. Keep your arms busy</mark></h3>
 
-            {%  else %}
-              <h3 class="h4 mb-2">1. Keep your arms busy</h3>
+          {%  else %}
+          <h3 class="h4 mb-2">1. Keep your arms busy</h3>
 
-            {% endif %}
+          {% endif %}
           <p class="text-muted mb-0">
             Moving your arms allows you to direct your audience's attention to where you want it to be.
             For example, you could be pointing at your presentation, or holding a object that pertains to your
@@ -153,12 +150,12 @@
           </div>
           <br id="tip-2">
           {% if tip1|int ==  2 or tip2|int == 2%}
-              <h3 class="h4 mb-2"><mark>2. Stand straight or walk around the room</mark></h3>
+          <h3 class="h4 mb-2"><mark>2. Stand straight or walk around the room</mark></h3>
 
-            {%  else %}
-              <h3 class="h4 mb-2">2. Stand straight or walk around the room</h3>
+          {%  else %}
+          <h3 class="h4 mb-2">2. Stand straight or walk around the room</h3>
 
-            {% endif %}
+          {% endif %}
           <p class="text-muted mb-0">
             Walking or standing straight make you look taller and more formal, especially compared to leaning or
             slouching. Bad posture is extremely easy to detect and can have negative impacts on your presentation.
@@ -180,10 +177,10 @@
             </div>
             <br id="tip-3">
             {% if tip1|int ==  3 or tip2|int == 3%}
-              <h3 class="h4 mb-2"><mark>3. Move your hands away from each other</mark></h3>
+            <h3 class="h4 mb-2"><mark>3. Move your hands away from each other</mark></h3>
 
             {% else %}
-              <h3 class="h4 mb-2">3. Move your hands away from each other</h3>
+            <h3 class="h4 mb-2">3. Move your hands away from each other</h3>
 
             {% endif %}
             <p class="text-muted mb-0">
@@ -212,10 +209,10 @@
             </div>
             <br id="tip-4">
             {% if tip1|int == 4 or tip2|int == 4%}
-              <h3 class="h4 mb-2"><mark>4. Make your audience your top priority</mark></h3>
+            <h3 class="h4 mb-2"><mark>4. Make your audience your top priority</mark></h3>
 
             {%  else %}
-              <h3 class="h4 mb-2">4. Make your audience your top priority</h3>
+            <h3 class="h4 mb-2">4. Make your audience your top priority</h3>
 
             {% endif %}
             <p class="text-muted mb-0">
@@ -251,10 +248,10 @@
             </p>
             <br id="tip-5">
             {% if tip1|int ==  5 or tip2|int == 5%}
-              <h3 class="h4 mb-2"><mark>5. Walk around or stand tall</mark></h3>
+            <h3 class="h4 mb-2"><mark>5. Walk around or stand tall</mark></h3>
 
             {%  else %}
-              <h3 class="h4 mb-2">5. Walk around or stand tall</h3>
+            <h3 class="h4 mb-2">5. Walk around or stand tall</h3>
 
             {% endif %}
             <p class="text-muted mb-0">
@@ -277,10 +274,10 @@
             </div>
             <br id="tip-6">
             {% if tip1|int == 6 or tip2|int == 6%}
-              <h3 class="h4 mb-2"><mark>6. Move your arms around</mark></h3>
+            <h3 class="h4 mb-2"><mark>6. Move your arms around</mark></h3>
 
             {%  else %}
-              <h3 class="h4 mb-2">6. Move your arms around</h3>
+            <h3 class="h4 mb-2">6. Move your arms around</h3>
 
             {% endif %}
             <p class="text-muted mb-0">
@@ -313,10 +310,8 @@
         </script> - Posture Buddy</div>
     </div>
   </footer>
-  <!--JQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Core theme JS-->
-  <script src="/static/js/results.js"></script>
+  <script src="/static/js/resultss.js"></script>
 </body>
 
 </html>
