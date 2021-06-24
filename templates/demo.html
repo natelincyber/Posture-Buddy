@@ -98,14 +98,14 @@ endblock %} {% block body %}
 
 <section class="page-section bg-dark text-white">
   <div class="container px-4 px-lg-5 text-center">
-    <span id="time"><h2>Recording starts in <span id="timer">3</span> seconds!</h2></span>
-    <div class="container"><h3 id="recorder">Recording </h3>
-      <svg height="100" width="30" id="recorder">
+    <h3 id="recorder">Recording
+      <svg height="100" width="30">
         <circle fill="#ff0000" stroke="none" cx="20" cy="50" r="10">
-            <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1" />
+          <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1" />
         </circle>
-      </svg></div>
-    
+      </svg>
+    </h3>
+
     <img id="video" href="preload" style="
         display: block;
         margin-left: auto;
@@ -128,5 +128,4 @@ endblock %} {% block body %}
     }
   });
 </script>
-<script src="/static/js/recording.js"></script>
 {% endblock %}
