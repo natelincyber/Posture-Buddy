@@ -201,7 +201,7 @@ def main(detector):
     # change 1 to 0 for regular webcam
     # remove cap
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
     # previousTime = 0
 
