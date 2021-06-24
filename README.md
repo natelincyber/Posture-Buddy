@@ -30,5 +30,5 @@ We noticed that many members in our community fail to speak up about issues that
 ## Instructions to Use
 1. Download all the files from this repository into a folder on your computer
 2. Open your folder and click on main.py
-3. Now, go into your broswer and type 127.0.0.1:5000 into the url
+3. Now, go into your broswer and type 127.0.0.1:5000 into the search bar
 4. You should now be able to access the Posture Buddy site and use it as much as you want.
