@@ -72,9 +72,6 @@ def generateTips(arms, legs, sway, armsDown, fidget, focus):
     tip1 = list(numsSorted.keys())[-1]
     tip2 = list(numsSorted.keys())[-2]
 
-    print(numsSorted, tip1, tip2)
-
-
     return tip1, tip2
 
 
@@ -96,19 +93,11 @@ def results():
     fidgetPercent = int((fidgetcounter/time) * 100)
     focusPercent = int((focuscounter/time) * 100)
 
-    arms = False
-    legs = False
-    sway  = False
-    armsDown = False
-    fidget = False
-    focus = False
-
     convertedTime = convert(time)
     
     grade = calculateGrade(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
 
     tip1, tip2 = generateTips(armsPercent, legsPercent, swayPercent, armsDownPercent, fidgetPercent, focusPercent)
-    print(tip1, tip2)
 
     
     return render_template('results.html', armscounter=armscounter, legscounter=legscounter, 
