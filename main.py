@@ -2,6 +2,8 @@ from flask import Flask
 from flask import render_template
 from flask import Response
 
+import webbrowser, _thread, time
+
 import poseModule
 
 app = Flask(__name__)
@@ -11,6 +13,7 @@ detector = poseModule.poseDetector()
 
 @app.route('/')
 def index():
+    
     return render_template('index.html')
 
 
@@ -127,7 +130,14 @@ def analytics():
 def video_feed():
     return Response(poseModule.main(detector), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+def openTab():
+    time.sleep(2)
+    webbrowser.open("http://127.0.0.1:5000/")
+
 
 if __name__ == "__main__":
     # host
+    _thread.start_new_thread(openTab,tuple())
     app.run(host='127.0.0.1', debug=True, port=5000)
+
+    
