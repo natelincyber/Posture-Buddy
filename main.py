@@ -95,6 +95,12 @@ def results():
     focusPercent = int((focuscounter/time) * 100)
 
     convertedTime = convert(time)
+    armscounter = convert(armscounter)
+    legscounter = convert(legscounter)
+    swaycounter = convert(swaycounter)
+    armsdowncounter = convert(armsdowncounter)
+    fidgetcounter = convert(fidgetcounter)
+    focuscounter = convert(focuscounter)
 
     grade = calculateGrade(armsPercent, legsPercent, swayPercent,
                            armsDownPercent, fidgetPercent, focusPercent)
