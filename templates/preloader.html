@@ -132,19 +132,20 @@
   <div class="bg bg3"></div>
   <script>
     window.onload = function () {
-       var sec = 10;
-       setInterval(function () {
-          document.getElementById("timer").innerHTML =
-          sec--;}, 1000);
+      var sec = 10;
+      setInterval(function () {
+        document.getElementById("timer").innerHTML =
+          sec--;
+      }, 1000);
     };
- </script>
+  </script>
   <div class="content">
     <!--make merryweather sans-->
     <h1>Get ready to begin speaking!</h1>
     <h3>Please make sure that you stand in front of the camera and that your whole body is visible</h3>
     <h3 id="time">Recording starts in <span id="timer"><strong>10</strong></span> seconds</h3>
   </div>
-  
+
   <script type="text/javascript">
     var timer = setTimeout(function () {
       window.location = '/demo'

@@ -301,7 +301,150 @@
             </p>
         </div>
       </div>
+      <br>
+      <br>
+      <!-- Button trigger modal -->
+      <div class="container">
+        <div class="text-center">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Stats For Nerds
+          </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Stats For Nerds</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">Crossing Arms</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">{{armscounter}}</p>
+                  </div>
+                  <div class="col-2">
+                    <p class="text-muted">{{ 100 - armsPercent }}%</p>
+                  </div>
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">Crossing Legs</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">{{legscounter}}</p>
+                  </div>
+                  <div class="col-2">
+                    <p class="text-muted">{{ 100 - legsPercent }}%</p>
+                  </div>
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">Leaning</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">{{swaycounter}}</p>
+                  </div>
+                  <div class="col-2">
+                    <p class="text-muted">{{ 100 - swayPercent }}%</p>
+                  </div>
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">Hand Gestures</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">{{armsdowncounter}}</p>
+                  </div>
+                  <div class="col-2">
+                    <p class="text-muted">{{ 100 - armsDownPercent }}%</p>
+                  </div>
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">Fidgeting</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">{{fidgetcounter}}</p>
+                  </div>
+                  <div class="col-2">
+                    <p class="text-muted">{{ 100 - fidgetPercent }}%</p>
+                  </div>
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">Focus</p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted">{{focuscounter}}</p>
+                  </div>
+                  <div class="col-2">
+                    <p class="text-muted">{{ 100 - focusPercent }}%</p>
+                  </div>
+                  <div class="col-1">
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+                <hr class="divider" />
+                <div class="row">
+                  <div class="col-2">
+                    <p class="text-muted"></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted text-center"><b>Total Time</b></p>
+                  </div>
+                  <div class="col-4">
+                    <p class="text-muted text-center"><b>{{convertedTime}}</b></p>
+                  </div>
+                  <div class="col-2">
+                    <p class="text-muted"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
   </section>
+
+
+
   <footer class=" bg-light py-5">
     <div class="container px-4 px-lg-5">
       <div class="small text-center text-muted">Copyright &copy;
@@ -312,6 +455,10 @@
   </footer>
   <!-- Core theme JS-->
   <script src="/static/js/resultss.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+
 </body>
 
 </html>
