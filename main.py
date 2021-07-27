@@ -60,7 +60,6 @@ def image(data_image):
 
     # emit the frame back
     emit('response_back', stringData)
-    print('sent')
 
 
 def convert(seconds):
