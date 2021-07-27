@@ -1,17 +1,22 @@
-from flask import Flask
-from flask import render_template
-from flask import Response
+from flask import Flask, Response, render_template
 from flask_socketio import SocketIO, emit
-
+from io import StringIO
+import io, imutils, cv2, base64
+import numpy as np
+from PIL import Image
 import poseModule
 
 app = Flask(__name__)
+socketio = SocketIO(app, cors_allowed_origins="*")
+
 
 detector = poseModule.poseDetector()
 
-@app.route('/')
+@app.route('/',)
 def index():
     return render_template('index.html')
+
+
 
 
 @app.route('/demo')
@@ -24,6 +29,38 @@ def demo():
     detector.setfocusCounter(0)
     detector.setuniversalCounter(0)
     return render_template('demo.html')
+
+@app.route('/testing', methods=['GET', 'POST'])
+def testing():
+    return render_template('testing.html')
+
+@socketio.on('image')
+def image(data_image):
+    sbuf = StringIO()
+    sbuf.write(data_image)
+
+    # decode and convert into image
+    b = io.BytesIO(base64.b64decode(data_image))
+    pimg = Image.open(b)
+
+    ## converting RGB to BGR, as opencv standards
+    frame = cv2.cvtColor(np.array(pimg), cv2.COLOR_RGB2BGR)
+    
+
+    # Process the image frame
+    frame = imutils.resize(frame, width=1000)
+    frame = cv2.flip(frame, 1)
+    imgencode = cv2.imencode('.jpg', frame)[1]
+
+    # base64 encode
+    stringData = base64.b64encode(imgencode).decode('utf-8')
+    b64_src = 'data:image/jpg;base64,'
+    stringData = b64_src + stringData
+    
+
+    # emit the frame back
+    emit('response_back', stringData)
+    print('sent')
 
 
 def convert(seconds):
@@ -138,6 +175,6 @@ def video_feed():
 
 if __name__ == "__main__":
     # host
-    app.run(host='127.0.0.1', debug=True, port=5000)
+    socketio.run(app, debug=True, host='127.0.0.1')
 
     
